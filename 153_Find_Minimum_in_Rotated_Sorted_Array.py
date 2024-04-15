@@ -19,28 +19,24 @@ def solution(array):
     start = 0
     end = sz - 1
     fail_safe = 0
+    ans = array[0];
 
 
-    while (end - start) > 1 and fail_safe < sz:
+    while start <= end and fail_safe < sz:
         logs = []
         mid = start + ((end - start) // 2)
         m = array[mid]
         s = array[start]
         e = array[end]
-
-        _min = min(m, s, e)
-
-        if(_min == s): return s
-
-        if(_min == m): end = mid
-        else: start = mid;  
-
-        logs.append(f"{start=} {end=} {arr[start:end + 1]=}")
-
-        fail_safe += 1;
+        
+        if(s < e):
+            return min(s, ans)
+        if(m < s): 
+            end = mid - 1
+        else:
+            start = mid + 1
     
-    return min(array[start:end + 1])
-
+    return ans
 
 r = 10
 for i in range(20):

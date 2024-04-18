@@ -48,7 +48,19 @@ def printArrayWithPointers(array, pointers=None):
             print(slot, end="")
         print()
 
-__all__ = ["printArrayWithPointers", "print_dict"]
+
+def print_liked_list(head):
+    
+    columns = 0
+    while(head):
+        print(f"'{head.val}' ==> ", sep="", end="")
+        head = head.next
+        columns += 1
+        # if not (columns % 5): print()
+    
+    print(head)
+
+__all__ = ["printArrayWithPointers", "print_dict", "print_liked_list"]
 
 def _remove_duplicates(data):
   """
@@ -72,6 +84,7 @@ def _remove_duplicates(data):
       unique_data.append(num)
 
   return unique_data
+
 
 if(__name__ == "__main__"):
     printArrayWithPointers(list(range(0,20)), [

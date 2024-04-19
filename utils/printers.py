@@ -49,8 +49,9 @@ def printArrayWithPointers(array, pointers=None):
         print()
 
 
-def print_liked_list(head):
+def print_liked_list(head, prefix=None):
     
+    if(prefix): print(prefix, sep="", end="")
     columns = 0
     while(head):
         print(f"'{head.val}' ==> ", sep="", end="")
